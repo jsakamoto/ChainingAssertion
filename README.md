@@ -2,13 +2,26 @@
 
 ![ChainingAssertion.jpg](.contents/ChainingAssertion.jpg)
 
-Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest, NUnit, xUnit.net, MbUnit. This provides only single file.
-NuGet install supported
+Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest, NUnit, xUnit.net, MbUnit. NuGet install supported.
 
-- [PM> Install-Package ChainingAssertion](https://www.nuget.org/packages/ChainingAssertion) (for MSTest)
-- [PM> Install-Package ChainingAssertion-NUnit](http://nuget.org/List/Packages/ChainingAssertion-NUnit) (for NUnit)
-- [PM> Install-Package ChainingAssertion-MbUnit](http://nuget.org/List/Packages/ChainingAssertion-MbUnit) (for MbUnit)
-- [PM> Install-Package ChainingAssertion-xUnit](http://nuget.org/List/Packages/ChainingAssertion-xUnit) (for xUnit.net)
+### Single C# Source edition packages
+
+This edition provides only single C# source (.cs) file.
+
+- [PM> Install-Package ChainingAssertion](https://www.nuget.org/packages/ChainingAssertion) (for MSTest) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion.svg)](https://www.nuget.org/packages/ChainingAssertion/)
+- [PM> Install-Package ChainingAssertion-NUnit](http://nuget.org/List/Packages/ChainingAssertion-NUnit) (for NUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-NUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-NUint/)
+- [PM> Install-Package ChainingAssertion-MbUnit](http://nuget.org/List/Packages/ChainingAssertion-MbUnit) (for MbUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-MbUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-MbUnit/)
+- [PM> Install-Package ChainingAssertion-xUnit](http://nuget.org/List/Packages/ChainingAssertion-xUnit) (for xUnit.net) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-xUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-xUnit/)
+
+### Binary only edition packages
+
+This edition provides .dll file as general NuGet package style.
+
+- [PM> Install-Package ChainingAssertion.Bin](https://www.nuget.org/packages/ChainingAssertion.Bin) (for MSTest) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion.Bin/)
+- [PM> Install-Package ChainingAssertion-NUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-NUnit.Bin) (for NUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-NUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-NUnit.Bin/)
+- [PM> Install-Package ChainingAssertion-MbUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-MbUnit.Bin) (for MbUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-MbUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-MbUnit.Bin/)
+- [PM> Install-Package ChainingAssertion-xUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-xUnit.Bin) (for xUnit.net) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-xUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-xUnit.Bin/)
+
 
 ## Is
 
