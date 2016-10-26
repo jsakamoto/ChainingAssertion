@@ -95,9 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\File\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="ChainingAssertion.xUnit.cs" />
     <Compile Include="UnitTest.xUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

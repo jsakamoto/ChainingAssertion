@@ -3,7 +3,7 @@
   <metadata>
     <id>ChainingAssertion-xUnit.Bin</id>
     <version>$version$</version>
-    <title>Chaining Assertion for xUnit - Binary Edition</title>
+    <title>$title$</title>
     <authors>neuecc</authors>
     <owners>neuecc</owners>
     <licenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</licenseUrl>
@@ -12,6 +12,12 @@
     <description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for xUnit.net.</description>
     <language>en-US</language>
     <tags>test unittest xUnit</tags>
+    <releaseNotes>
+      <![CDATA[
+      v.1.7.3 - Fix: xUnit.net assertion parameters for Assert.Equal(T expected, T actual).
+      v.1.7.2 - Upgrade xUnit.net ver.2
+      ]]>
+    </releaseNotes>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
       <frameworkAssembly assemblyName="System.Core" targetFramework="" />
