@@ -12,6 +12,11 @@
     <description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest.</description>
     <language>en-US</language>
     <tags>test unittest mstest</tags>
+    <releaseNotes>
+      <![CDATA[
+      v.1.8.0 - Feature: Add "await TestContext.RunAsync(async (...)=>{})" extension method.
+      ]]>
+    </releaseNotes>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="" />
       <frameworkAssembly assemblyName="System.Core" targetFramework="" />
