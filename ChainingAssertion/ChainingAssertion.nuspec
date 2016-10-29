@@ -19,4 +19,8 @@
       <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="" />
     </frameworkAssemblies>
   </metadata>
+  <files>
+    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.dll" target="lib\net40" />
+    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.XML" target="lib\net40" />
+  </files>
 </package>
