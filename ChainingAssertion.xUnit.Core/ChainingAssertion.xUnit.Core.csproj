@@ -3,7 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <AssemblyName>ChainingAssertion.xUnit</AssemblyName>
+    <AssemblyTitle>Chaining Assertion for xUnit - Binary Edition</AssemblyTitle>
     <RootNamespace>ChainingAssertion.xUnit</RootNamespace>
+    <Version>1.7.4</Version>
+    <Authors>neuecc</Authors>
+    <Company>neuecc</Company>
+    <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
+    <Description>Method Chaining base UnitTesting Extension Methods for xUnit.net.</Description>
+    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
+    <PackageTags>test unittest xUnit</PackageTags>
+    <Product>ChainingAssertion</Product>
+    <PackageId>ChainingAssertion-xUnit.Bin</PackageId>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
