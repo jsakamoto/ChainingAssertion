@@ -15,6 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit", "
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit", "ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj", "{A92B00E2-4940-4323-A230-93F0D19E21E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988} = {63C17E1B-CFA8-47DF-AF9E-0295E94A3988}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MbUnit", "ChainingAssertion.MbUnit\ChainingAssertion.MbUnit.csproj", "{C63A6CEB-3673-4113-96BF-0DD22A6075BA}"
 EndProject
@@ -44,6 +47,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit.Core", "ChainingAssertion.xUnit.Core\ChainingAssertion.xUnit.Core.csproj", "{5D7DE9A3-1E74-44F9-9022-CC59B045D303}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit.Core.UnitTest", "ChainingAssertion.xUnit.Core.UnitTest\ChainingAssertion.xUnit.Core.UnitTest.csproj", "{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core", "ChainingAssertion.NUnit.Core\ChainingAssertion.NUnit.Core.csproj", "{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core.UnitTest", "ChainingAssertion.NUnit.Core.UnitTest\ChainingAssertion.NUnit.Core.UnitTest.csproj", "{22C94BEA-990C-424C-833F-A2EF56E3F3C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +94,14 @@ Global
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

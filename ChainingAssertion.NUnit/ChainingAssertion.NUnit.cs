@@ -116,21 +116,33 @@
  * 
  * -- more details see project home --*/
 
+#if !NETCORE
+#define ENABLE_CONTRACT
+#define ENABLE_DYNAMIC
+#endif
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Dynamic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+
+#if ENABLE_CONTRACT
+using System.Diagnostics.Contracts;
+#endif
+#if ENABLE_DYNAMIC
+using System.Dynamic;
+#endif
 
 namespace NUnit.Framework
 {
     #region Extensions
 
     [System.Diagnostics.DebuggerStepThroughAttribute]
+#if ENABLE_CONTRACT
     [ContractVerification(false)]
+#endif
     public static partial class AssertEx
     {
         /// <summary>Assert.AreEqual, if T is IEnumerable then CollectionAssert.AreEqual</summary>
@@ -473,6 +485,8 @@ namespace NUnit.Framework
 
         #endregion
 
+#if ENABLE_DYNAMIC
+
         #region DynamicAccessor
 
         /// <summary>to DynamicAccessor that can call private method/field/property/indexer.</summary>
@@ -666,6 +680,8 @@ namespace NUnit.Framework
         }
 
         #endregion
+
+#endif
 
         #region ExpressionDumper
 

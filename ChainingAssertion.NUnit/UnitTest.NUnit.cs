@@ -1,14 +1,26 @@
-﻿using NUnit.Framework;
+﻿#if !NETCORE
+#define ENABLE_INVARIANTCULTURE
+#define ENABLE_DYNAMIC
+#define ENABLE_CONTRACT
+#endif
+
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-#if DEBUG
+#if DEBUG || NETCORE
 namespace ChainingAssertion
 {
     [TestFixture]
     public class UnitTest
     {
+#if ENABLE_INVARIANTCULTURE
+        private StringComparer IgnoreCase => StringComparer.InvariantCultureIgnoreCase;
+#else
+        private StringComparer IgnoreCase => StringComparer.CurrentCultureIgnoreCase;
+#endif
+
         [Test]
         public void IsTest()
         {
@@ -69,11 +81,11 @@ namespace ChainingAssertion
             var upper = new[] { "A", "B", "C" };
 
             // Comparer CollectionAssert, use IEqualityComparer<T> or Func<T,T,bool> delegate
-            lower.Is(upper, StringComparer.InvariantCultureIgnoreCase);
+            lower.Is(upper, IgnoreCase);
             lower.Is(upper, (x, y) => x.ToUpper() == y.ToUpper());
 
             // or you can use Linq to Objects - SequenceEqual
-            lower.SequenceEqual(upper, StringComparer.InvariantCultureIgnoreCase).Is(true);
+            lower.SequenceEqual(upper, IgnoreCase).Is(true);
         }
 
         [Test]
@@ -162,6 +174,7 @@ namespace ChainingAssertion
             }
         }
 
+#if ENABLE_DYNAMIC
         [Test]
         public void DynamicTest()
         {
@@ -308,6 +321,7 @@ namespace ChainingAssertion
             var e3 = Assert.Throws<ArgumentException>(() => d.PrivateGeneric<int, int, int, int>(0, 0, 0));
             e3.Message.Is(s => s.Contains("not match arguments") && s.Contains("PrivateGeneric"));
         }
+#endif
 
         private class Person
         {
@@ -339,13 +353,13 @@ namespace ChainingAssertion
 
             object o = new object();
             o.IsNotNull();
-            Assert.Throws<NUnit.Framework.AssertionException>(
+            Assert.Throws<AssertionException>(
                 () => o.IsNull("msg_msg"))
             .Message.Contains("msg_msg").Is(true);
 
             o = null;
             o.IsNull();
-            Assert.Throws<NUnit.Framework.AssertionException>(
+            Assert.Throws<AssertionException>(
                 () => o.IsNotNull("msg_msg"))
             .Message.Contains("msg_msg").Is(true);
         }
