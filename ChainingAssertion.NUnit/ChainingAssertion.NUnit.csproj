@@ -77,9 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\File\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
     <Compile Include="ChainingAssertion.NUnit.cs" />
     <Compile Include="UnitTest.NUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,7 +104,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChainingAssertion-NUnit.nuspec" />
+    <None Include="ChainingAssertion.NUnit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -117,8 +114,18 @@
   <PropertyGroup>
     <PostBuildEvent>if not "$(ConfigurationName)" == "Release" goto END
 pushd "$(ProjectDir)"
-"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectFileName)" -Prop Configuration=Release;Platform=AnyCPU -o $(OutDir)
-:END</PostBuildEvent>
+
+"%25SystemRoot%25\system32\find" "AssemblyVersion" &lt; Properties\AssemblyInfo.cs &gt; ~version.txt
+set /p ver= &lt; ~version.txt
+del ~version.txt
+
+"%25SystemRoot%25\system32\find" "AssemblyTitle" &lt; Properties\AssemblyInfo.cs &gt; ~title.txt
+set /p title= &lt; ~title.txt
+del ~title.txt
+
+"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec"  -Version %25ver:~28,-3%25 -Prop title="%25title:~26,-3%25" -o $(OutDir)
+:END
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
