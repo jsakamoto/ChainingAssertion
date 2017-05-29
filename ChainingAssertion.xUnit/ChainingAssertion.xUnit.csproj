@@ -141,7 +141,7 @@ del ~version.txt
 set /p title= &lt; ~title.txt
 del ~title.txt
 
-"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec" -Prop version=%25ver:~28,-3%25 -Prop title="%25title:~26,-3%25" -o $(OutDir)
+"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec" -Prop version=%25ver:~28,-3%25 -Prop title="%25title:~26,-3%25" -o ..\dist
 :END
 </PostBuildEvent>
   </PropertyGroup>
