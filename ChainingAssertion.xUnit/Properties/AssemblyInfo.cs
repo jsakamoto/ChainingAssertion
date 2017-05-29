@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Chaining Assertion for xUnit - Binary Edition")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("neuecc")]
 [assembly: AssemblyProduct("ChainingAssertion")]
 [assembly: AssemblyCopyright("licensed under Microsoft Public License(Ms-PL)")]

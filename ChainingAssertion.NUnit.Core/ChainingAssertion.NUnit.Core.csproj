@@ -5,15 +5,18 @@
     <AssemblyName>ChainingAssertion.NUnit</AssemblyName>
     <RootNamespace>ChainingAssertion.NUnit</RootNamespace>
     <PackageId>ChainingAssertion-NUnit.Bin</PackageId>
-    <Version>1.7.4</Version>
     <Authors>neuecc</Authors>
-    <Company>neuecc</Company>
-    <Product>ChainingAssertion</Product>
-    <Description>Method Chaining base UnitTesting Extension Methods for NUnit.</Description>
-    <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
-    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
-    <PackageTags>test unittest NUnit</PackageTags>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageTags></PackageTags>
+    <PackageProjectUrl></PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -27,10 +30,15 @@
 
   <ItemGroup>
     <Compile Include="..\ChainingAssertion.NUnit\ChainingAssertion.NUnit.cs" Link="ChainingAssertion.NUnit.cs" />
+    <Compile Include="..\ChainingAssertion.NUnit\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

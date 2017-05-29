@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Chaining Assertion for NUnit - Binary Edition")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("neuecc")]
 [assembly: AssemblyProduct("ChainingAssertion")]
 [assembly: AssemblyCopyright("licensed under Microsoft Public License(Ms-PL)")]

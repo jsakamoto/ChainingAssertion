@@ -3,20 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <AssemblyName>ChainingAssertion</AssemblyName>
-    <AssemblyTitle>Chaining Assertion for MSTest - Binary Edition</AssemblyTitle>
     <RootNamespace>ChainingAssertion</RootNamespace>
-    <AssemblyVersion>1.8.1.0</AssemblyVersion>
-    <FileVersion>1.8.1.0</FileVersion>
-    <PackageId>ChainingAssertion.Bin</PackageId>
-    <Version>1.8.1</Version>
+    <PackageId></PackageId>
     <Authors>neuecc</Authors>
-    <Company>neuecc</Company>
-    <Product>ChainingAssertion</Product>
-    <Description>Method Chaining base UnitTesting Extension Methods for MSTest.</Description>
-    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
-    <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
-    <PackageTags>test unittest mstest</PackageTags>
-    <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageTags></PackageTags>
+    <PackageProjectUrl></PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Compile Include="..\ChainingAssertion\ChainingAssertion.MSTest.cs" Link="ChainingAssertion.MSTest.cs" />
+    <Compile Include="..\ChainingAssertion\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,5 +43,9 @@
 
   <ItemGroup>
     <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>

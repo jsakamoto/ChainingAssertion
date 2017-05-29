@@ -3,7 +3,7 @@
   <metadata>
     <id>ChainingAssertion.Bin</id>
     <version>$version$-beta</version>
-    <title>Chaining Assertion for MSTest - Binary Edition</title>
+    <title>$title$</title>
     <authors>neuecc</authors>
     <owners>neuecc</owners>
     <licenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</licenseUrl>

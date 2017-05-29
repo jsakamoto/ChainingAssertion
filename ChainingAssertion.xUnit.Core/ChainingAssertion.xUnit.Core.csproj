@@ -3,18 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <AssemblyName>ChainingAssertion.xUnit</AssemblyName>
-    <AssemblyTitle>Chaining Assertion for xUnit - Binary Edition</AssemblyTitle>
     <RootNamespace>ChainingAssertion.xUnit</RootNamespace>
-    <Version>1.7.4</Version>
-    <Authors>neuecc</Authors>
-    <Company>neuecc</Company>
-    <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
-    <Description>Method Chaining base UnitTesting Extension Methods for xUnit.net.</Description>
-    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
-    <PackageTags>test unittest xUnit</PackageTags>
-    <Product>ChainingAssertion</Product>
     <PackageId>ChainingAssertion-xUnit.Bin</PackageId>
+    <Authors>neuecc</Authors>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageTags></PackageTags>
+    <PackageProjectUrl></PackageProjectUrl>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -29,11 +31,16 @@
 
   <ItemGroup>
     <Compile Include="..\ChainingAssertion.xUnit\ChainingAssertion.xUnit.cs" Link="ChainingAssertion.xUnit.cs" />
+    <Compile Include="..\ChainingAssertion.xUnit\Properties\AssemblyInfo.cs" Link="Properties\AssemblyInfo.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
     <PackageReference Include="xunit" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
