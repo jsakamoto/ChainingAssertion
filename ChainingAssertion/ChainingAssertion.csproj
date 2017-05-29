@@ -136,7 +136,7 @@ pushd "$(ProjectDir)"
 set /p ver= &lt; ~version.txt
 del ~version.txt
 
-"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec"  -Version %25ver:~28,-3%25 -o $(OutDir)
+"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec" -Prop version=%25ver:~28,-3%25 -o $(OutDir)
 :END</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
