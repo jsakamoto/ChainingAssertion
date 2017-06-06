@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion", "ChainingAssertion\ChainingAssertion.csproj", "{1B7277C5-58BB-4E42-BB8D-72DD12DCD28E}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -17,6 +17,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit", "ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj", "{A92B00E2-4940-4323-A230-93F0D19E21E1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988} = {63C17E1B-CFA8-47DF-AF9E-0295E94A3988}
+		{DF5805F3-442E-424C-9998-3DB631CE835A} = {DF5805F3-442E-424C-9998-3DB631CE835A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MbUnit", "ChainingAssertion.MbUnit\ChainingAssertion.MbUnit.csproj", "{C63A6CEB-3673-4113-96BF-0DD22A6075BA}"
@@ -51,6 +52,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core", "ChainingAssertion.NUnit.Core\ChainingAssertion.NUnit.Core.csproj", "{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core.UnitTest", "ChainingAssertion.NUnit.Core.UnitTest\ChainingAssertion.NUnit.Core.UnitTest.csproj", "{22C94BEA-990C-424C-833F-A2EF56E3F3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit3.UnitTest", "ChainingAssertion.NUnit3.UnitTest\ChainingAssertion.NUnit3.UnitTest.csproj", "{8ED0FD15-D645-486C-9DAC-5F878EC2560F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit3", "ChainingAssertion.NUnit3\ChainingAssertion.NUnit3.csproj", "{DF5805F3-442E-424C-9998-3DB631CE835A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +107,14 @@ Global
 		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22C94BEA-990C-424C-833F-A2EF56E3F3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

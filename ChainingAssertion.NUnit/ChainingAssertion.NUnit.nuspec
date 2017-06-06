@@ -14,7 +14,9 @@
     <tags>test unittest NUnit</tags>
     <releaseNotes>
       <![CDATA[
-      v.1.7.4 - Enhance: .NET Core App 1.0 support.
+      v.1.7.4
+      - Enhance: .NET Core App 1.0 support.
+      - Enhance: NUnit v3 support.
       ]]>
     </releaseNotes>
     <frameworkAssemblies>
@@ -32,10 +34,15 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="Install.ps1" target="tools" />
     <file src="bin\Release\ChainingAssertion.NUnit.dll" target="lib\net40" />
     <file src="bin\Release\ChainingAssertion.NUnit.XML" target="lib\net40" />
     <file src="bin\Release\ChainingAssertion.NUnit.dll" target="lib\net45" />
     <file src="bin\Release\ChainingAssertion.NUnit.XML" target="lib\net45" />
+    <file src="..\ChainingAssertion.NUnit3\bin\Release\ChainingAssertion.NUnit3.dll" target="lib\net40" />
+    <file src="..\ChainingAssertion.NUnit3\bin\Release\ChainingAssertion.NUnit3.XML" target="lib\net40" />
+    <file src="..\ChainingAssertion.NUnit3\bin\Release\ChainingAssertion.NUnit3.dll" target="lib\net45" />
+    <file src="..\ChainingAssertion.NUnit3\bin\Release\ChainingAssertion.NUnit3.XML" target="lib\net45" />
     <file src="..\ChainingAssertion.NUnit.Core\bin\Release\netcoreapp1.0\ChainingAssertion.NUnit.dll" target="lib\netcoreapp1.0" />
     <file src="..\ChainingAssertion.NUnit.Core\bin\Release\netcoreapp1.0\ChainingAssertion.NUnit.XML" target="lib\netcoreapp1.0" />
   </files>
