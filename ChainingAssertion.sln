@@ -18,6 +18,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit", "ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj", "{A92B00E2-4940-4323-A230-93F0D19E21E1}"
 	ProjectSection(ProjectDependencies) = postProject
 		{63C17E1B-CFA8-47DF-AF9E-0295E94A3988} = {63C17E1B-CFA8-47DF-AF9E-0295E94A3988}
+		{DF5805F3-442E-424C-9998-3DB631CE835A} = {DF5805F3-442E-424C-9998-3DB631CE835A}
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MbUnit", "ChainingAssertion.MbUnit\ChainingAssertion.MbUnit.csproj", "{C63A6CEB-3673-4113-96BF-0DD22A6075BA}"
@@ -56,6 +57,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MSTest", "ChainingAssertion.MSTest\ChainingAssertion.MSTest.csproj", "{491677A6-28A9-4A63-BC7C-B077706F43DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MSTest.UnitTest", "ChainingAssertion.MSTest.UnitTest\ChainingAssertion.MSTest.UnitTest.csproj", "{EA1ED85C-1A0B-4F62-AECF-C9E8265B511F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit3.UnitTest", "ChainingAssertion.NUnit3.UnitTest\ChainingAssertion.NUnit3.UnitTest.csproj", "{8ED0FD15-D645-486C-9DAC-5F878EC2560F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit3", "ChainingAssertion.NUnit3\ChainingAssertion.NUnit3.csproj", "{DF5805F3-442E-424C-9998-3DB631CE835A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +120,14 @@ Global
 		{EA1ED85C-1A0B-4F62-AECF-C9E8265B511F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1ED85C-1A0B-4F62-AECF-C9E8265B511F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1ED85C-1A0B-4F62-AECF-C9E8265B511F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ED0FD15-D645-486C-9DAC-5F878EC2560F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF5805F3-442E-424C-9998-3DB631CE835A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
