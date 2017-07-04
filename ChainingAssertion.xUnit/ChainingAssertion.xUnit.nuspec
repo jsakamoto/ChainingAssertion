@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ChainingAssertion-xUnit.Bin</id>
+    <version>$version$-beta</version>
+    <title>$title$</title>
+    <authors>neuecc</authors>
+    <owners>neuecc</owners>
+    <licenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</licenseUrl>
+    <projectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for xUnit.net.</description>
+    <language>en-US</language>
+    <tags>test unittest xUnit</tags>
+    <releaseNotes>
+      <![CDATA[
+      v.1.7.4 - Enhance: .NET Core App 1.0 support.
+      v.1.7.3 - Fix: xUnit.net assertion parameters for Assert.Equal(T expected, T actual).
+      v.1.7.2 - Upgrade xUnit.net ver.2
+      ]]>
+    </releaseNotes>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net45" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net45" />
+    </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework=".NETCoreApp1.0">
+        <dependency id="Microsoft.NET.Test.Sdk" version="15.0.0" />
+        <dependency id="xunit" version="2.2.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\ChainingAssertion.xUnit.dll" target="lib\net45" />
+    <file src="bin\Release\ChainingAssertion.xUnit.xml" target="lib\net45" />
+    <file src="..\ChainingAssertion.xUnit.Core\bin\Release\netcoreapp1.0\ChainingAssertion.xUnit.dll" target="lib\netcoreapp1.0" />
+    <file src="..\ChainingAssertion.xUnit.Core\bin\Release\netcoreapp1.0\ChainingAssertion.xUnit.XML" target="lib\netcoreapp1.0" />
+  </files>
+</package>

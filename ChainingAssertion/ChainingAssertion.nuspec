@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>ChainingAssertion.Bin</id>
-    <version>$version$</version>
-    <title>Chaining Assertion for MSTest - Binary Edition</title>
+    <version>$version$-beta</version>
+    <title>$title$</title>
     <authors>neuecc</authors>
     <owners>neuecc</owners>
     <licenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</licenseUrl>
@@ -14,18 +14,35 @@
     <tags>test unittest mstest</tags>
     <releaseNotes>
       <![CDATA[
+      v.1.8.1 - Enhance: .NET Core App 1.0 support.
       v.1.8.0 - Feature: Add "await TestContext.RunAsync(async (...)=>{})" extension method.
       ]]>
     </releaseNotes>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="" />
-      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
-      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="" />
-      <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="" />
+      <frameworkAssembly assemblyName="System" targetFramework="net40" />
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net40" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="net45" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net40" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net45" />
+      <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net40" />
+      <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net45" />
     </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework=".NETCoreApp1.0">
+        <dependency id="Microsoft.Extensions.DependencyModel" version="1.0.0" />
+        <dependency id="Microsoft.NET.Test.Sdk" version="15.0.0" />
+        <dependency id="MSTest.TestAdapter" version="1.1.11" />
+        <dependency id="MSTest.TestFramework" version="1.1.11" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.dll" target="lib\net40" />
     <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.XML" target="lib\net40" />
+    <file src="bin\Release\ChainingAssertion.dll" target="lib\net45" />
+    <file src="bin\Release\ChainingAssertion.XML" target="lib\net45" />
+    <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.dll" target="lib\netcoreapp1.0" />
+    <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.XML" target="lib\netcoreapp1.0" />
   </files>
 </package>

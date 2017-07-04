@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("Chaining Assertion for xUnit - Binary Edition")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("neuecc")]
 [assembly: AssemblyProduct("ChainingAssertion")]
 [assembly: AssemblyCopyright("licensed under Microsoft Public License(Ms-PL)")]
@@ -15,5 +14,5 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("1.7.3.0")]
-[assembly: AssemblyFileVersion("1.7.3.0")]
+[assembly: AssemblyVersion("1.7.4.0")]
+[assembly: AssemblyFileVersion("1.7.4.0")]

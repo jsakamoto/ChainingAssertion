@@ -23,16 +23,16 @@ class Program
         var inFX45 = false;
         var srcFX40 = srcContents.Where(src =>
         {
-            if (src == "#if _CHAININGASSERTION_FX45") inFX45 = true;
-            if (src == "#endif // _CHAININGASSERTION_FX45") { inFX45 = false; return false; }
+            if (src.StartsWith("#if _CHAININGASSERTION_FX45")) inFX45 = true;
+            if (src.StartsWith("#endif // _CHAININGASSERTION_FX45")) { inFX45 = false; return false; }
             return !inFX45;
         }).ToArray();
         File.WriteAllLines(distPathFX40, srcFX40);
 
         var srcFX45 = srcContents.Where(src =>
         {
-            if (src == "#if _CHAININGASSERTION_FX45") return false;
-            if (src == "#endif // _CHAININGASSERTION_FX45") return false;
+            if (src.StartsWith("#if _CHAININGASSERTION_FX45")) return false;
+            if (src.StartsWith("#endif // _CHAININGASSERTION_FX45")) return false;
             return true;
         }).ToArray();
         File.WriteAllLines(distPathFX45, srcFX45);

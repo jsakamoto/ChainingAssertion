@@ -1,15 +1,27 @@
-﻿using System;
+﻿#if !NETCORE
+#define ENABLE_INVARIANTCULTURE
+#define ENABLE_DYNAMIC
+#define ENABLE_CONTRACT
+#endif
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Xunit.Extensions;
 using Xunit.Sdk;
 
-#if DEBUG
+#if DEBUG || NETCORE
 namespace ChainingAssertion
 {
     public class UnitTest
     {
+#if ENABLE_INVARIANTCULTURE
+        private StringComparer IgnoreCase => StringComparer.InvariantCultureIgnoreCase;
+#else
+        private StringComparer IgnoreCase => StringComparer.CurrentCultureIgnoreCase;
+#endif
+
         [Fact]
         public void IsTest()
         {
@@ -71,11 +83,11 @@ namespace ChainingAssertion
             var upper = new[] { "A", "B", "C" };
 
             // Comparer CollectionAssert, use IEqualityComparer<T> or Func<T,T,bool> delegate
-            lower.Is(upper, StringComparer.InvariantCultureIgnoreCase);
+            lower.Is(upper, IgnoreCase);
             lower.Is(upper, (x, y) => x.ToUpper() == y.ToUpper());
 
             // or you can use Linq to Objects - SequenceEqual
-            lower.SequenceEqual(upper, StringComparer.InvariantCultureIgnoreCase).Is(true);
+            lower.SequenceEqual(upper, IgnoreCase).Is(true);
         }
 
         [Fact]
@@ -114,6 +126,8 @@ namespace ChainingAssertion
                 };
             }
         }
+
+#if ENABLE_DYNAMIC
 
         // dynamic
 
@@ -311,6 +325,8 @@ namespace ChainingAssertion
             var e3 = Assert.Throws<ArgumentException>(() => d.PrivateGeneric<int, int, int, int>(0, 0, 0));
             e3.Message.Is(s => s.Contains("not match arguments") && s.Contains("PrivateGeneric"));
         }
+
+#endif // ENABLE_DYNAMIC
 
         private class Person
         {

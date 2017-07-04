@@ -122,7 +122,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ChainingAssertion-xUnit.nuspec" />
+    <None Include="ChainingAssertion.xUnit.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -130,12 +130,20 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-      if not "$(ConfigurationName)" == "Release" goto END
-      pushd "$(ProjectDir)"
-      "$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectFileName)" -Prop Configuration=Release;Platform=AnyCPU -o $(OutDir)
-      :END
-    </PostBuildEvent>
+    <PostBuildEvent>if not "$(ConfigurationName)" == "Release" goto END
+pushd "$(ProjectDir)"
+
+"%25SystemRoot%25\system32\find" "AssemblyVersion" &lt; Properties\AssemblyInfo.cs &gt; ~version.txt
+set /p ver= &lt; ~version.txt
+del ~version.txt
+
+"%25SystemRoot%25\system32\find" "AssemblyTitle" &lt; Properties\AssemblyInfo.cs &gt; ~title.txt
+set /p title= &lt; ~title.txt
+del ~title.txt
+
+"$(SolutionDir)File\NuGet\NuGet.exe" pack "$(ProjectName).nuspec" -Prop version=%25ver:~28,-3%25 -Prop title="%25title:~26,-3%25" -o ..\dist
+:END
+</PostBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

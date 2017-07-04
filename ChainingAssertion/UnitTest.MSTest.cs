@@ -1,16 +1,28 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿#if !NETCORE
+#define ENABLE_INVARIANTCULTURE
+#define ENABLE_DYNAMIC
+#define ENABLE_CONTRACT
+#endif
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-#if DEBUG
+#if DEBUG || NETCORE
 namespace ChainingAssertion
 {
     [TestClass]
     public class UnitTest
     {
         public TestContext TestContext { get; set; }
+
+#if ENABLE_INVARIANTCULTURE
+        private StringComparer IgnoreCase => StringComparer.InvariantCultureIgnoreCase;
+#else
+        private StringComparer IgnoreCase => StringComparer.CurrentCultureIgnoreCase;
+#endif
 
         // samples
 
@@ -77,11 +89,11 @@ namespace ChainingAssertion
             var upper = new[] { "A", "B", "C" };
 
             // Comparer CollectionAssert, use IEqualityComparer<T> or Func<T,T,bool> delegate
-            lower.Is(upper, StringComparer.InvariantCultureIgnoreCase);
+            lower.Is(upper, IgnoreCase);
             lower.Is(upper, (x, y) => x.ToUpper() == y.ToUpper());
 
             // or you can use Linq to Objects - SequenceEqual
-            lower.SequenceEqual(upper, StringComparer.InvariantCultureIgnoreCase).Is(true);
+            lower.SequenceEqual(upper, IgnoreCase).Is(true);
         }
 
         class MyClass
@@ -175,6 +187,8 @@ namespace ChainingAssertion
                 set { privateField = value + index.ToString(); }
             }
         }
+
+#if ENABLE_DYNAMIC
 
         [TestMethod]
         public void DynamicTest()
@@ -336,6 +350,7 @@ namespace ChainingAssertion
             (d.DictGen(dict, 1.9) as string).Is("dict");
             (d.DictGen<int, string, double>(dict, 1.9) as string).Is("dict");
         }
+#endif
 
         private class Person
         {
@@ -361,6 +376,8 @@ namespace ChainingAssertion
             Assert.Fail();
         }
 
+#if ENABLE_CONTRACT
+
         void ContractRequires(string s)
         {
             System.Diagnostics.Contracts.Contract.Requires(s != null);
@@ -378,6 +395,8 @@ namespace ChainingAssertion
             AssertEx.Throws<AssertFailedException>(() =>
                 AssertEx.ThrowsContractException(() => { throw new Exception(); }));
         }
+
+#endif
 
         // testcase
 
