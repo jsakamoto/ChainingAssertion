@@ -26,7 +26,6 @@
       <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net40" />
       <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="net45" />
       <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net40" />
-      <frameworkAssembly assemblyName="Microsoft.VisualStudio.QualityTools.UnitTestFramework" targetFramework="net45" />
     </frameworkAssemblies>
     <dependencies>
       <group targetFramework=".NETCoreApp1.0">
@@ -38,11 +37,14 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.dll" target="lib\net40" />
-    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.XML" target="lib\net40" />
     <file src="bin\Release\ChainingAssertion.dll" target="lib\net45" />
     <file src="bin\Release\ChainingAssertion.XML" target="lib\net45" />
+    <file src="..\ChainingAssertion.MSTest\bin\Release\ChainingAssertion.MSTest.dll" target="lib\net45" />
+    <file src="..\ChainingAssertion.MSTest\bin\Release\ChainingAssertion.MSTest.XML" target="lib\net45" />
+    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.dll" target="lib\net40" />
+    <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.XML" target="lib\net40" />
     <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.dll" target="lib\netcoreapp1.0" />
     <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.XML" target="lib\netcoreapp1.0" />
+    <file src="Install.ps1" target="tools" />
   </files>
 </package>
