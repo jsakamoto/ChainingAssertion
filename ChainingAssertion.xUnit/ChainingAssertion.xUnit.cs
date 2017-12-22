@@ -116,7 +116,7 @@
  * (mock.privateField as string).Is("mogumogu");
  * 
  * -- more details see project home --*/
-#if !NETCORE
+#if !NETCOREAPP1_0 && !NETCORE
 #define ENABLE_DYNAMIC
 #define ENABLE_CONTRACT
 #endif

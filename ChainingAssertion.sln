@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion", "ChainingAssertion\ChainingAssertion.csproj", "{1B7277C5-58BB-4E42-BB8D-72DD12DCD28E}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -10,10 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion", "Chaini
 		{41939DF9-15F6-4761-AF05-A242DA5A0B03} = {41939DF9-15F6-4761-AF05-A242DA5A0B03}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit", "ChainingAssertion.xUnit\ChainingAssertion.xUnit.csproj", "{1349E9DA-1B25-40D4-88DA-64923461765A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{5D7DE9A3-1E74-44F9-9022-CC59B045D303} = {5D7DE9A3-1E74-44F9-9022-CC59B045D303}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.xUnit", "ChainingAssertion.xUnit\ChainingAssertion.xUnit.csproj", "{1349E9DA-1B25-40D4-88DA-64923461765A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit", "ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj", "{A92B00E2-4940-4323-A230-93F0D19E21E1}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -42,17 +39,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{35C4E14F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MSTest.NETFX40", "ChainingAssertion.MSTest.NETFX40\ChainingAssertion.MSTest.NETFX40.csproj", "{1E2850BD-25A4-4857-BFB4-B19900A0130F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MSTest.Core", "ChainingAssertion.MSTest.Core\ChainingAssertion.MSTest.Core.csproj", "{41939DF9-15F6-4761-AF05-A242DA5A0B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.MSTest.Core", "ChainingAssertion.MSTest.Core\ChainingAssertion.MSTest.Core.csproj", "{41939DF9-15F6-4761-AF05-A242DA5A0B03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.MSTest.Core.UnitTest", "ChainingAssertion.MSTest.Core.UnitTest\ChainingAssertion.MSTest.Core.UnitTest.csproj", "{C1AAB70B-A3EB-4332-AA78-BDEF400E8ED0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit.Core", "ChainingAssertion.xUnit.Core\ChainingAssertion.xUnit.Core.csproj", "{5D7DE9A3-1E74-44F9-9022-CC59B045D303}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.xUnit.Core.UnitTest", "ChainingAssertion.xUnit.Core.UnitTest\ChainingAssertion.xUnit.Core.UnitTest.csproj", "{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.xUnit.Core.UnitTest", "ChainingAssertion.xUnit.Core.UnitTest\ChainingAssertion.xUnit.Core.UnitTest.csproj", "{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit.Core", "ChainingAssertion.NUnit.Core\ChainingAssertion.NUnit.Core.csproj", "{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core", "ChainingAssertion.NUnit.Core\ChainingAssertion.NUnit.Core.csproj", "{63C17E1B-CFA8-47DF-AF9E-0295E94A3988}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.NUnit.Core.UnitTest", "ChainingAssertion.NUnit.Core.UnitTest\ChainingAssertion.NUnit.Core.UnitTest.csproj", "{22C94BEA-990C-424C-833F-A2EF56E3F3C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit.Core.UnitTest", "ChainingAssertion.NUnit.Core.UnitTest\ChainingAssertion.NUnit.Core.UnitTest.csproj", "{22C94BEA-990C-424C-833F-A2EF56E3F3C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainingAssertion.MSTest", "ChainingAssertion.MSTest\ChainingAssertion.MSTest.csproj", "{491677A6-28A9-4A63-BC7C-B077706F43DE}"
 EndProject
@@ -96,10 +91,6 @@ Global
 		{C1AAB70B-A3EB-4332-AA78-BDEF400E8ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1AAB70B-A3EB-4332-AA78-BDEF400E8ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1AAB70B-A3EB-4332-AA78-BDEF400E8ED0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5D7DE9A3-1E74-44F9-9022-CC59B045D303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5D7DE9A3-1E74-44F9-9022-CC59B045D303}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5D7DE9A3-1E74-44F9-9022-CC59B045D303}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5D7DE9A3-1E74-44F9-9022-CC59B045D303}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24054B60-1E65-4BE1-A19B-F9C2D83A4B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -134,5 +125,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{35C4E14F-653A-4626-84B6-0487F0E55230} = {B75A0492-D825-4AC4-9710-C455AB2B0102}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {421F7981-B167-4308-B7A5-EF86766F2057}
 	EndGlobalSection
 EndGlobal

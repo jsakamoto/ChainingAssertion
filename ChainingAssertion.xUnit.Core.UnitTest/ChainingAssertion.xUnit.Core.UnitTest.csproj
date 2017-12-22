@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChainingAssertion.xUnit.Core\ChainingAssertion.xUnit.Core.csproj" />
+    <ProjectReference Include="..\ChainingAssertion.xUnit\ChainingAssertion.xUnit.csproj" />
   </ItemGroup>
 
   <ItemGroup>
