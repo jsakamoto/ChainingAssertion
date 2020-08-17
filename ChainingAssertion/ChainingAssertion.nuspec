@@ -14,8 +14,15 @@
     <tags>test unittest mstest</tags>
     <releaseNotes>
       <![CDATA[
-      v.1.8.1 - Enhance: .NET Core App 1.0 support.
-      v.1.8.0 - Feature: Add "await TestContext.RunAsync(async (...)=>{})" extension method.
+      v.2.0.0
+      - Drop "Microsoft.VisualStudio.QualityTools.UnitTestFramework" support.
+      - support SDK style project.
+      
+      v.1.8.1
+      - Enhance: .NET Core App 1.0 support.
+      
+      v.1.8.0
+      - Feature: Add "await TestContext.RunAsync(async (...)=>{})" extension method.
       ]]>
     </releaseNotes>
     <frameworkAssemblies>
@@ -37,14 +44,11 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\ChainingAssertion.dll" target="lib\net45" />
-    <file src="bin\Release\ChainingAssertion.XML" target="lib\net45" />
     <file src="..\ChainingAssertion.MSTest\bin\Release\ChainingAssertion.MSTest.dll" target="lib\net45" />
     <file src="..\ChainingAssertion.MSTest\bin\Release\ChainingAssertion.MSTest.XML" target="lib\net45" />
     <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.dll" target="lib\net40" />
     <file src="..\ChainingAssertion.MSTest.NETFX40\bin\Release\ChainingAssertion.XML" target="lib\net40" />
     <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.dll" target="lib\netcoreapp1.0" />
     <file src="..\ChainingAssertion.MSTest.Core\bin\Release\netcoreapp1.0\ChainingAssertion.XML" target="lib\netcoreapp1.0" />
-    <file src="Install.ps1" target="tools" />
   </files>
 </package>
