@@ -21,7 +21,7 @@
     <Description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for NUnit.</Description>
     <PackageReleaseNotes>(Please write the package release notes in "RELEASE-NOTES.txt")</PackageReleaseNotes>
     <PackageIcon>nupkg-icon.png</PackageIcon>
-    
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
