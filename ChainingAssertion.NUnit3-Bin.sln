@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LiCENSE = LiCENSE
 		README.md = README.md
+		.github\workflows\unit-tests-for-nunit.yml = .github\workflows\unit-tests-for-nunit.yml
 	EndProjectSection
 EndProject
 Global
