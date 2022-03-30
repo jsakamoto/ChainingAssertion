@@ -4,5 +4,5 @@ bin/
 obj/
 packages/
 .vs/
-/File/NuGet/pre-package.exe
 /dist/*.nupkg
+TestResults/

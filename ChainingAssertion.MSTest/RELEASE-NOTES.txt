@@ -1,0 +1,12 @@
+﻿v.2.1.0
+- Enhance: Nullable reference types support.
+
+v.2.0.0
+- Drop "Microsoft.VisualStudio.QualityTools.UnitTestFramework" support.
+- support SDK style project.
+      
+v.1.8.1
+- Enhance: .NET Core App 1.0 support.
+      
+v.1.8.0
+- Feature: Add "await TestContext.RunAsync(async (...)=>{})" extension method.
