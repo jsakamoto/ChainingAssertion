@@ -1,4 +1,4 @@
-# Chaining Assertion
+# Chaining Assertion [![unit tests for NUnit](https://github.com/jsakamoto/ChainingAssertion/actions/workflows/unit-tests-for-nunit.yml/badge.svg?event=push)](https://github.com/jsakamoto/ChainingAssertion/actions/workflows/unit-tests-for-nunit.yml)
 
 ![ChainingAssertion.jpg](https://raw.githubusercontent.com/jsakamoto/ChainingAssertion/bin-edition/.contents/ChainingAssertion.jpg)
 
