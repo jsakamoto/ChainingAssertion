@@ -1,17 +1,8 @@
 # Chaining Assertion
 
-![ChainingAssertion.jpg](.contents/ChainingAssertion.jpg)
+![ChainingAssertion.jpg](https://raw.githubusercontent.com/jsakamoto/ChainingAssertion/bin-edition/.contents/ChainingAssertion.jpg)
 
 Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest, NUnit, xUnit.net, MbUnit. NuGet install supported.
-
-### Single C# Source edition packages
-
-This edition provides only single C# source (.cs) file.
-
-- [PM> Install-Package ChainingAssertion](https://www.nuget.org/packages/ChainingAssertion) (for MSTest) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion.svg)](https://www.nuget.org/packages/ChainingAssertion/)
-- [PM> Install-Package ChainingAssertion-NUnit](http://nuget.org/List/Packages/ChainingAssertion-NUnit) (for NUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-NUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-NUint/)
-- [PM> Install-Package ChainingAssertion-MbUnit](http://nuget.org/List/Packages/ChainingAssertion-MbUnit) (for MbUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-MbUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-MbUnit/)
-- [PM> Install-Package ChainingAssertion-xUnit](http://nuget.org/List/Packages/ChainingAssertion-xUnit) (for xUnit.net) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-xUnit.svg)](https://www.nuget.org/packages/ChainingAssertion-xUnit/)
 
 ### Binary only edition packages
 
@@ -169,7 +160,7 @@ public void TestMethod()
 
 error message shows property values
 
-![codeplex_chaining_errormsg.jpg](.contents/codeplex_chaining_errormsg.jpg)
+![codeplex_chaining_errormsg.jpg](https://raw.githubusercontent.com/jsakamoto/ChainingAssertion/bin-edition/.contents/codeplex_chaining_errormsg.jpg)
 
 ## Exception Test (for MSTest)
 

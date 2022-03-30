@@ -1,0 +1,6 @@
+v.1.8.1
+- Enhance: Nullable reference types support.
+
+v.1.7.4
+- Enhance: .NET Core App 1.0 support.
+- Enhance: NUnit v3 support.
