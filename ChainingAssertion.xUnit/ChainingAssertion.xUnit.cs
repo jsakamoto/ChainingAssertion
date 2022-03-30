@@ -122,35 +122,25 @@
  * (mock.privateField as string).Is("mogumogu");
  * 
  * -- more details see project home --*/
-#if !NETCOREAPP1_0 && !NETCORE
-#define ENABLE_DYNAMIC
-#define ENABLE_CONTRACT
-#endif
 
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Contracts;
+using System.Dynamic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using Xunit.Sdk;
 
-#if ENABLE_CONTRACT
-using System.Diagnostics.Contracts;
-using System.Diagnostics.CodeAnalysis;
-#endif
-#if ENABLE_DYNAMIC
-using System.Dynamic;
-#endif
-
 namespace Xunit
 {
     #region Extensions
 
-    [System.Diagnostics.DebuggerStepThroughAttribute]
-#if ENABLE_CONTRACT
+    [DebuggerStepThrough]
     [ContractVerification(false)]
-#endif
     public static partial class AssertEx
     {
         /// <summary>Assert.Equal, if T is IEnumerable then compare value equality</summary>
@@ -518,7 +508,6 @@ namespace Xunit
 
         #endregion
 
-#if ENABLE_DYNAMIC
         #region DynamicAccessor
 
         /// <summary>to DynamicAccessor that can call private method/field/property/indexer.</summary>
@@ -712,7 +701,6 @@ namespace Xunit
         }
 
         #endregion
-#endif
 
         #region ExpressionDumper
 
