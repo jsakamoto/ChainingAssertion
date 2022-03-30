@@ -1,27 +1,29 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;netstandard2.0;net45</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(MSBuildProjectName).xml</DocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>ChainingAssertion-xUnit.Bin</PackageId>
+    <Version>1.8.1</Version>
+    <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <Title>Chaining Assertion for xUnit - Binary Edition</Title>
     <Product>ChainingAssertion</Product>
-    <AssemblyVersion>1.7.5.0</AssemblyVersion>
-    <FileVersion>1.7.5.0</FileVersion>
-    <Authors>neuecc</Authors>
+    <Authors>neuecc, J.Sakamoto</Authors>
     <Company>neuecc</Company>
-    <Version>1.7.5.0</Version>
     <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
-    <Description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for xUnit.net.</Description>
-    <PackageReleaseNotes>v.1.7.5 - Enhance: .NET Standard 2.0 support.
-v.1.7.4 - Enhance: .NET Core App 1.0 support.
-v.1.7.3 - Fix: xUnit.net assertion parameters for Assert.Equal(T expected, T actual).
-v.1.7.2 - Upgrade xUnit.net ver.2
-</PackageReleaseNotes>
-    <PackageId>ChainingAssertion-xUnit.Bin</PackageId>
     <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
     <PackageTags>test unittest xUnit</PackageTags>
-    <RepositoryUrl>https://github.com/jsakamoto/ChainingAssertion</RepositoryUrl>
+    <PackageOutputPath>../dist</PackageOutputPath>
+    <Description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for xUnit.net.</Description>
+    <PackageReleaseNotes>(Please write the package release notes in "RELEASE-NOTES.txt")</PackageReleaseNotes>
+    <PackageIcon>nupkg-icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -29,29 +31,25 @@ v.1.7.2 - Upgrade xUnit.net ver.2
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="UnitTest.xUnit.cs" />
+    <None Include="..\.contents\nupkg-icon.png" Visible="false" Pack="true" PackagePath="/" />
+    <None Include="..\README.md" Visible="false" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.0.1" />
+    <PackageReference Include="xunit" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <PackageReference Include="xunit">
-      <Version>2.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
+  <Target Name="BuildPackageReleaseNotes" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="RELEASE-NOTES.txt">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+      <PackageReleaseNotes>$([System.Text.RegularExpressions.Regex]::Match($(PackageReleaseNotes), "^(v\.[\d\.]+.+?)v\.[\d\.]+", System.Text.RegularExpressions.RegexOptions.Singleline).Groups[1].Value)</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp1.0'">
-    <PackageReference Include="xunit">
-      <Version>2.2.0</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="xunit">
-      <Version>2.2.0</Version>
-    </PackageReference>
-  </ItemGroup>
+  <Import Project="..\ChainingAssertion.Shared\ChainingAssertion.Shared.projitems" Label="Shared" />
 
 </Project>

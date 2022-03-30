@@ -5,7 +5,13 @@
  * created and maintained by neuecc <ils@neue.cc - @neuecc on Twitter>
  * licensed under Microsoft Public License(Ms-PL)
  * http://chainingassertion.codeplex.com/
- *--------------------------------------------------------------------------*/
+  *--------------------------------------------------------------------------
+ * ver 1.8.x
+ *
+ * maintained by J.Sakamoto <@jsakamoto on Twitter>
+ * licensed under Microsoft Public License(Ms-PL)
+ * https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition
+/*--------------------------------------------------------------------------*/
 
 /* -- Tutorial --
  * | at first, include this file on xUnit.net Project.
@@ -131,6 +137,7 @@ using Xunit.Sdk;
 
 #if ENABLE_CONTRACT
 using System.Diagnostics.Contracts;
+using System.Diagnostics.CodeAnalysis;
 #endif
 #if ENABLE_DYNAMIC
 using System.Dynamic;
@@ -267,9 +274,11 @@ namespace Xunit
         }
 
         /// <summary>Assert.NotNull</summary>
-        public static void IsNotNull<T>(this T value)
+        [return: NotNull]
+        public static T IsNotNull<T>([NotNull] this T value)
         {
             Assert.NotNull(value);
+            return value;
         }
 
         /// <summary>Is(true)</summary>
@@ -297,6 +306,7 @@ namespace Xunit
         }
 
         /// <summary>Assert.IsType</summary>
+        [return: NotNull]
         public static TExpected IsInstanceOf<TExpected>(this object value)
         {
             Assert.IsType<TExpected>(value);
@@ -322,8 +332,8 @@ namespace Xunit
 
             public bool Equals(T x, T y)
             {
-                return (comparison != null)
-                    ? comparison(x, y)
+                return (this.comparison != null)
+                    ? this.comparison(x, y)
                     : object.Equals(x, y);
             }
 
@@ -343,16 +353,16 @@ namespace Xunit
                 var field = typeof(T).GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 if (field != null)
                 {
-                    GetValue = () => field.GetValue(target);
-                    SetValue = value => field.SetValue(target, value);
+                    this.GetValue = () => field.GetValue(target);
+                    this.SetValue = value => field.SetValue(target, value);
                     return;
                 }
 
                 var prop = typeof(T).GetProperty(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 if (prop != null)
                 {
-                    GetValue = () => prop.GetValue(target, null);
-                    SetValue = value => prop.SetValue(target, value, null);
+                    this.GetValue = () => prop.GetValue(target, null);
+                    this.SetValue = value => prop.SetValue(target, value, null);
                     return;
                 }
 
@@ -531,7 +541,7 @@ namespace Xunit
             {
                 try
                 {
-                    typeof(T).InvokeMember("Item", TransparentFlags | BindingFlags.SetProperty, null, target, indexes.Concat(new[] { value }).ToArray());
+                    typeof(T).InvokeMember("Item", TransparentFlags | BindingFlags.SetProperty, null, this.target, indexes.Concat(new[] { value }).ToArray());
                     return true;
                 }
                 catch (MissingMethodException) { throw new ArgumentException(string.Format("indexer not found : Type <{0}>", typeof(T).Name)); };
@@ -541,7 +551,7 @@ namespace Xunit
             {
                 try
                 {
-                    result = typeof(T).InvokeMember("Item", TransparentFlags | BindingFlags.GetProperty, null, target, indexes);
+                    result = typeof(T).InvokeMember("Item", TransparentFlags | BindingFlags.GetProperty, null, this.target, indexes);
                     return true;
                 }
                 catch (MissingMethodException) { throw new ArgumentException(string.Format("indexer not found : Type <{0}>", typeof(T).Name)); };
@@ -549,14 +559,14 @@ namespace Xunit
 
             public override bool TrySetMember(SetMemberBinder binder, object value)
             {
-                var accessor = new ReflectAccessor<T>(target, binder.Name);
+                var accessor = new ReflectAccessor<T>(this.target, binder.Name);
                 accessor.SetValue(value);
                 return true;
             }
 
             public override bool TryGetMember(GetMemberBinder binder, out object result)
             {
-                var accessor = new ReflectAccessor<T>(target, binder.Name);
+                var accessor = new ReflectAccessor<T>(this.target, binder.Name);
                 result = accessor.GetValue();
                 return true;
             }
@@ -575,8 +585,8 @@ namespace Xunit
                     .Take(args.Length)
                     .ToArray();
 
-                var method = MatchMethod(binder.Name, args, typeArgs, parameterTypes);
-                result = method.Invoke(target, args);
+                var method = this.MatchMethod(binder.Name, args, typeArgs, parameterTypes);
+                result = method.Invoke(this.target, args);
 
                 return true;
             }
@@ -618,7 +628,7 @@ namespace Xunit
                                 .Zip(parameterTypes, Tuple.Create)
                                 .GroupBy(a => a.Item1, a => a.Item2)
                                 .Where(g => g.Key.IsGenericParameter)
-                                .Select(g => new { g.Key, Type = g.Aggregate(AssignableBoundType) })
+                                .Select(g => new { g.Key, Type = g.Aggregate(this.AssignableBoundType) })
                                 .Where(a => a.Type != null);
 
                             var typeParams = genericArguments
@@ -691,7 +701,7 @@ namespace Xunit
 
                 public bool Equals(TX x, TX y)
                 {
-                    return equals(x, y);
+                    return this.equals(x, y);
                 }
 
                 public int GetHashCode(TX obj)
@@ -722,10 +732,10 @@ namespace Xunit
 
             protected override System.Linq.Expressions.Expression VisitMember(MemberExpression node)
             {
-                if (node.Expression == param && !Members.ContainsKey(node.Member.Name))
+                if (node.Expression == this.param && !this.Members.ContainsKey(node.Member.Name))
                 {
-                    var accessor = new ReflectAccessor<T>(target, node.Member.Name);
-                    Members.Add(node.Member.Name, accessor.GetValue());
+                    var accessor = new ReflectAccessor<T>(this.target, node.Member.Name);
+                    this.Members.Add(node.Member.Name, accessor.GetValue());
                 }
 
                 return base.VisitMember(node);

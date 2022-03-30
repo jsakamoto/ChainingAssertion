@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\unit-tests-for-nunit.yml = .github\workflows\unit-tests-for-nunit.yml
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ChainingAssertion.Shared", "ChainingAssertion.Shared\ChainingAssertion.Shared.shproj", "{9C2A633E-BEF7-4229-A6DE-03A4F9CD3BE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +36,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4705F1C6-E508-4D3C-B742-7213794A61AD}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		ChainingAssertion.Shared\ChainingAssertion.Shared.projitems*{4c91bce7-ff90-4bda-bd79-9e84cb48c8b5}*SharedItemsImports = 5
+		ChainingAssertion.Shared\ChainingAssertion.Shared.projitems*{9c2a633e-bef7-4229-a6de-03a4f9cd3be6}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

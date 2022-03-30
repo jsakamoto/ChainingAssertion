@@ -1,4 +1,4 @@
-name: tests for NUnit
+name: tests for xUnit
 
 on:
   push:
@@ -19,4 +19,4 @@ jobs:
 
       # Perform unit tests
       - name: Perform unit tests
-        run: dotnet test ChainingAssertion.NUnit3.UnitTest -l "console;verbosity=normal" -v:q --nologo
+        run: dotnet test ChainingAssertion.xUnit.UnitTest -l "console;verbosity=normal" -v:q --nologo

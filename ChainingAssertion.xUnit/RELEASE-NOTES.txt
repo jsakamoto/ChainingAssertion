@@ -1,0 +1,14 @@
+﻿v.1.8.1
+- Enhance: Nullable reference types support.
+
+v.1.7.5
+- Enhance: .NET Standard 2.0 support.
+
+v.1.7.4
+- Enhance: .NET Core App 1.0 support.
+
+v.1.7.3
+- Fix: xUnit.net assertion parameters for Assert.Equal(T expected, T actual).
+
+v.1.7.2
+- Upgrade xUnit.net ver.2
