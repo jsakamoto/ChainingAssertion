@@ -12,7 +12,6 @@ This edition provides .dll file as general NuGet package style.
 
 - [PM> Install-Package ChainingAssertion-MSTest.Bin](https://www.nuget.org/packages/ChainingAssertion-MSTest.Bin) (for MSTest) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-MSTest.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-MSTest.Bin/)
 - [PM> Install-Package ChainingAssertion-NUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-NUnit.Bin) (for NUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-NUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-NUnit.Bin/)
-- [PM> Install-Package ChainingAssertion-MbUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-MbUnit.Bin) (for MbUnit) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-MbUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-MbUnit.Bin/)
 - [PM> Install-Package ChainingAssertion-xUnit.Bin](http://nuget.org/List/Packages/ChainingAssertion-xUnit.Bin) (for xUnit.net) [![NuGet Package](https://img.shields.io/nuget/v/ChainingAssertion-xUnit.Bin.svg)](https://www.nuget.org/packages/ChainingAssertion-xUnit.Bin/)
 
 
