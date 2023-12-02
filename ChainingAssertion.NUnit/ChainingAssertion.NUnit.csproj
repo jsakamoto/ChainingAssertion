@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>ChainingAssertion-NUnit.Bin</PackageId>
-    <Version>1.8.1</Version>
+    <Version>4.0.0</Version>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <Title>Chaining Assertion for NUnit - Binary Edition</Title>
     <Product>ChainingAssertion</Product>
@@ -17,8 +17,7 @@
     <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
     <RepositoryUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
-    <!--<PackageLicenseExpression>Ms-PL</PackageLicenseExpression>-->
-    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <PackageTags>test unittest NUnit</PackageTags>
     <PackageOutputPath>../dist</PackageOutputPath>
     <Description>Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for NUnit.</Description>
@@ -29,6 +28,9 @@
 
   <ItemGroup>
     <PackageReference Include="NUnit" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
     <PackageReference Include="Microsoft.CSharp" Version="4.0.1" />
   </ItemGroup>
 
