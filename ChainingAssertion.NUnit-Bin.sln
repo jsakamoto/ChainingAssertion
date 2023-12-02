@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32317.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit3", "ChainingAssertion.NUnit3\ChainingAssertion.NUnit3.csproj", "{4C91BCE7-FF90-4BDA-BD79-9E84CB48C8B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit", "ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj", "{4C91BCE7-FF90-4BDA-BD79-9E84CB48C8B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit3.UnitTest", "ChainingAssertion.NUnit3.UnitTest\ChainingAssertion.NUnit3.UnitTest.csproj", "{6915C77C-0647-4C7E-9CB4-F01A1CFC8FBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainingAssertion.NUnit.UnitTest", "ChainingAssertion.NUnit.UnitTest\ChainingAssertion.NUnit.UnitTest.csproj", "{6915C77C-0647-4C7E-9CB4-F01A1CFC8FBA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4188DE8B-97BA-45C0-8789-A0D77029E065}"
 	ProjectSection(SolutionItems) = preProject

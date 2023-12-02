@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="NUnit.Framework"/>
+    <Using Include="NUnit.Framework" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ChainingAssertion.NUnit3\ChainingAssertion.NUnit3.csproj" />
+    <ProjectReference Include="..\ChainingAssertion.NUnit\ChainingAssertion.NUnit.csproj" />
   </ItemGroup>
 
 </Project>
