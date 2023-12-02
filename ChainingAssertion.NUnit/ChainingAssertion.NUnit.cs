@@ -132,6 +132,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using NUnit.Framework.Legacy;
 
 namespace NUnit.Framework
 {
@@ -148,7 +149,7 @@ namespace NUnit.Framework
                 return;
             }
 
-            Assert.AreEqual(expected, actual, message);
+            ClassicAssert.AreEqual(expected, actual, message);
         }
 
         /// <summary>Assert.IsTrue(predicate(value))</summary>
@@ -157,7 +158,7 @@ namespace NUnit.Framework
             var condition = predicate.Compile().Invoke(value);
 
             var paramName = predicate.Parameters.First().Name;
-            string msg = "";
+            var msg = "";
             try
             {
                 var dumper = new ExpressionDumper<T>(value, predicate.Parameters.Single());
@@ -174,7 +175,7 @@ namespace NUnit.Framework
                     string.IsNullOrEmpty(message) ? "" : ", " + message);
             }
 
-            Assert.IsTrue(condition, msg);
+            ClassicAssert.IsTrue(condition, msg);
         }
 
         /// <summary>CollectionAssert.AreEqual</summary>
@@ -210,7 +211,7 @@ namespace NUnit.Framework
                 return;
             }
 
-            Assert.AreNotEqual(notExpected, actual, message);
+            ClassicAssert.AreNotEqual(notExpected, actual, message);
         }
 
         /// <summary>CollectionAssert.AreNotEqual</summary>
@@ -240,14 +241,14 @@ namespace NUnit.Framework
         /// <summary>Assert.IsNull</summary>
         public static void IsNull<T>([MaybeNull] this T value, string message = "")
         {
-            Assert.IsNull(value, message);
+            ClassicAssert.IsNull(value, message);
         }
 
         /// <summary>Assert.IsNotNull</summary>
         [return: NotNull]
         public static T IsNotNull<T>([NotNull] this T value, string message = "")
         {
-            Assert.IsNotNull(value, message);
+            ClassicAssert.IsNotNull(value, message);
             return value;
         }
 
@@ -266,27 +267,27 @@ namespace NUnit.Framework
         /// <summary>Assert.AreSame</summary>
         public static void IsSameReferenceAs<T>(this T actual, T expected, string message = "")
         {
-            Assert.AreSame(expected, actual, message);
+            ClassicAssert.AreSame(expected, actual, message);
         }
 
         /// <summary>Assert.AreNotSame</summary>
         public static void IsNotSameReferenceAs<T>(this T actual, T notExpected, string message = "")
         {
-            Assert.AreNotSame(notExpected, actual, message);
+            ClassicAssert.AreNotSame(notExpected, actual, message);
         }
 
         /// <summary>Assert.IsInstanceOf</summary>
         [return: NotNull]
         public static TExpected IsInstanceOf<TExpected>(this object value, string message = "")
         {
-            Assert.IsInstanceOf<TExpected>(value, message);
+            ClassicAssert.IsInstanceOf<TExpected>(value, message);
             return (TExpected)value;
         }
 
         /// <summary>Assert.IsNotInstanceOf</summary>
         public static void IsNotInstanceOf<TWrong>(this object value, string message = "")
         {
-            Assert.IsNotInstanceOf<TWrong>(value, message);
+            ClassicAssert.IsNotInstanceOf<TWrong>(value, message);
         }
 
         /// <summary>EqualityComparison to IComparer Converter for CollectionAssert</summary>
