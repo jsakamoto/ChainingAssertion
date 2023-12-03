@@ -95,7 +95,7 @@ public class AssertExTest
     }
 
     [Test]
-    [TestCaseSource("toaruSource")]
+    [TestCaseSource(nameof(toaruSource))]
     public void TestTestCaseSource(int x, int y, string z)
     {
         string.Concat(x, y).Is(z);
@@ -215,60 +215,27 @@ public class AssertExTest
 
     public class GenericPrivateMock
     {
-        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, T1 t1b)
-        {
-            return "a";
-        }
+        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, T1 t1b) => "a";
 
-        private string PrivateGeneric<T1, T2, T3>(T1 t1a, T2 t2a, T1 t1b)
-        {
-            return "b";
-        }
+        private string PrivateGeneric<T1, T2, T3>(T1 t1a, T2 t2a, T1 t1b) => "b";
 
-        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, int i)
-        {
-            return "c";
-        }
+        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, int i) => "c";
 
-        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, int i, T2 t2b)
-        {
-            return "d";
-        }
+        private string PrivateGeneric<T1, T2>(T1 t1a, T2 t2a, int i, T2 t2b) => "d";
 
-        private string PrivateGeneric(string t1a, string t2a, string t1b)
-        {
-            return "e";
-        }
+        private string PrivateGeneric(string t1a, string t2a, string t1b) => "e";
 
-        private string PrivateGeneric<T1, T2, T3>(T3 t3a, T2 t2, T1 t1, T3 t3b)
-        {
-            return "f";
-        }
+        private string PrivateGeneric<T1, T2, T3>(T3 t3a, T2 t2, T1 t1, T3 t3b) => "f";
 
-        private string PrivateGeneric<T>()
-        {
-            return "g";
-        }
+        private string PrivateGeneric<T>() => "g";
 
-        private string PrivateGeneric()
-        {
-            return "h";
-        }
+        private string PrivateGeneric() => "h";
 
-        private Type ReturnType<T>(T t1, T t2)
-        {
-            return typeof(T);
-        }
+        private Type ReturnType<T>(T t1, T t2) => typeof(T);
 
-        private Type ReturnType<T>(IEnumerable<T> t1, T t2)
-        {
-            return typeof(T);
-        }
+        private Type ReturnType<T>(IEnumerable<T> t1, T t2) => typeof(T);
 
-        private string DictGen<T1, T2, T3>(IDictionary<T1, IDictionary<T2, T3>> dict, T3 xxx)
-        {
-            return "dict";
-        }
+        private string DictGen<T1, T2, T3>(IDictionary<T1, IDictionary<T2, T3>> dict, T3 t) => "dict";
     }
 
     [Test]
@@ -288,12 +255,18 @@ public class AssertExTest
         (d.PrivateGeneric<int, string, double>(0.0, "", 0, 0.0) as string).Is("f");
         (d.PrivateGeneric<int>() as string).Is("g");
         (d.PrivateGeneric() as string).Is("h");
-        (d.ReturnType(0, 0) as Type).Is(typeof(int));
-
         (d.PrivateGeneric(0, "", 0) as string).Is("c");
         (d.PrivateGeneric<int, string>(0, "", 0) as string).Is("c");
         (d.PrivateGeneric(0, 0, 0) as string).Is("c");
+
+        (d.ReturnType(0, 0) as Type).Is(typeof(int));
+        (d.ReturnType(Enumerable.Range(1, 10), 0) as Type).Is(typeof(int));
+        (d.ReturnType<int>(Enumerable.Range(1, 10), 0) as Type).Is(typeof(int));
         (d.ReturnType<IEnumerable<int>>(Enumerable.Range(1, 10), new List<int>()) as Type).Is(typeof(IEnumerable<int>));
+
+        var dict = new Dictionary<int, IDictionary<string, double>>();
+        (d.DictGen(dict, 1.9) as string).Is("dict");
+        (d.DictGen<int, string, double>(dict, 1.9) as string).Is("dict");
     }
 
     [Test]
