@@ -1,4 +1,8 @@
-﻿v.2.1.0
+﻿v.2.1.1
+- Enhance: Support for the latest version of MSTest
+- Fix: Incorrect method resolution when using dynamic accessor by "AsDynamic()"
+
+v.2.1.0
 - Enhance: Nullable reference types support.
 
 v.2.0.0
