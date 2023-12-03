@@ -8,14 +8,14 @@
 
   <PropertyGroup>
     <PackageId>ChainingAssertion-xUnit.Bin</PackageId>
-    <Version>1.8.1</Version>
+    <Version>1.8.2</Version>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <Title>Chaining Assertion for xUnit - Binary Edition</Title>
     <Product>ChainingAssertion</Product>
     <Authors>neuecc, J.Sakamoto</Authors>
     <Company>neuecc</Company>
     <Copyright>licensed under Microsoft Public License(Ms-PL)</Copyright>
-    <PackageLicenseUrl>https://github.com/jsakamoto/ChainingAssertion/blob/bin-edition/LiCENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jsakamoto/ChainingAssertion/tree/bin-edition</PackageProjectUrl>
     <PackageTags>test unittest xUnit</PackageTags>
