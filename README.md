@@ -4,7 +4,7 @@
 
 ![ChainingAssertion.jpg](https://raw.githubusercontent.com/jsakamoto/ChainingAssertion/bin-edition/.contents/ChainingAssertion.jpg)
 
-Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest, NUnit, xUnit.net, MbUnit. NuGet install supported.
+Method Chaining base UnitTesting Extension Methods and Dynamic Private Accessor for MSTest, NUnit, xUnit.net. NuGet install supported.
 
 ### Binary only edition packages
 
