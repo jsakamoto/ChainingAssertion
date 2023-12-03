@@ -541,15 +541,7 @@ namespace NUnit.Framework
                 if (csharpBinder == null) throw new ArgumentException("is not csharp code");
 
                 var typeArgs = (csharpBinder.GetProperty("TypeArguments").GetValue(binder, null) as IList<Type>).ToArray();
-                var parameterTypes = (binder.GetType().GetField("Cache", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(binder) as Dictionary<Type, object>)
-                    .First()
-                    .Key
-                    .GetGenericArguments()
-                    .Skip(2)
-                    .Take(args.Length)
-                    .ToArray();
-
-                var method = this.MatchMethod(binder.Name, args, typeArgs, parameterTypes);
+                var method = this.MatchMethod(binder.Name, args, typeArgs);
                 result = method.Invoke(this.target, args);
 
                 return true;
@@ -563,8 +555,64 @@ namespace NUnit.Framework
                     : null;
             }
 
-            private MethodInfo MatchMethod(string methodName, object[] args, Type[] typeArgs, Type[] parameterTypes)
+            private class TypedMethod
             {
+                public MethodInfo MethodInfo { get; }
+
+                public Dictionary<string, Type> GenericParamTypes { get; } = new Dictionary<string, Type>();
+
+                public Type[] GenericArguments { get; }
+
+                public int Score { get; }
+
+                public TypedMethod(MethodInfo methodInfo, Type[] typeArgs, Type[] parameterTypes)
+                {
+                    this.MethodInfo = methodInfo;
+                    this.GenericArguments = methodInfo.GetGenericArguments();
+                    this.Score = -1;
+
+                    var rawParamTypes = methodInfo.GetParameters().Select(p => p.ParameterType).ToArray();
+                    if (rawParamTypes.Length != parameterTypes.Length) return;
+
+                    // Instantiate generic type argument types
+                    if (typeArgs.Any())
+                    {
+                        foreach (var typeArg in this.GenericArguments.Select((ga, index) => Tuple.Create(ga.Name, typeArgs[index])))
+                        {
+                            this.GenericParamTypes.Add(typeArg.Item1, typeArg.Item2);
+                        }
+                    }
+
+                    // Instantiate method parameter types
+                    var methodParamTypes = rawParamTypes
+                        .Select((methodParamType, index) =>
+                        {
+                            if (!methodParamType.IsGenericParameter) return methodParamType;
+                            if (this.GenericParamTypes.TryGetValue(methodParamType.Name, out var type)) return type;
+                            var parameterType = parameterTypes[index];
+                            if (parameterType != null) this.GenericParamTypes.Add(methodParamType.Name, parameterType);
+                            return parameterType;
+                        });
+
+                    // Scoring
+                    var scores = methodParamTypes.Zip(parameterTypes, Tuple.Create).Select((pair, index) =>
+                    {
+                        var methodParamType = pair.Item1;
+                        var parameterType = pair.Item2;
+                        var isGenericParam = rawParamTypes[index].IsGenericParameter;
+                        if (parameterType == null && methodParamType?.IsValueType == false) return isGenericParam ? 1 : 10;
+                        if (parameterType == methodParamType) return isGenericParam ? 100 : 1000;
+                        if (methodParamType?.IsAssignableFrom(parameterType) == true) return isGenericParam ? 1 : 10;
+                        return -1;
+                    });
+                    this.Score = scores.Any(s => s == -1) ? -1 : scores.DefaultIfEmpty(0).Sum();
+                }
+            }
+
+            private MethodInfo MatchMethod(string methodName, object[] args, Type[] typeArgs)
+            {
+                var parameterTypes = args.Select(a => a?.GetType()).ToArray();
+
                 // name match
                 var nameMatched = typeof(T).GetMethods(TransparentFlags)
                     .Where(mi => mi.Name == methodName)
@@ -579,11 +627,7 @@ namespace NUnit.Framework
 
                         if (!typeArgs.Any() && !genericArguments.Any()) // non generic method
                         {
-                            return new
-                            {
-                                MethodInfo = mi,
-                                TypeParameters = default(Dictionary<Type, Type>)
-                            };
+                            return new TypedMethod(mi, typeArgs, parameterTypes);
                         }
                         else if (!typeArgs.Any())
                         {
@@ -596,62 +640,44 @@ namespace NUnit.Framework
                                 .Where(a => a.Type != null);
 
                             var typeParams = genericArguments
-                                .GroupJoin(parameterGenericTypes, x => x, x => x.Key, (_, Args) => Args)
-                                .ToArray();
+                                .GroupJoin(parameterGenericTypes, x => x, x => x.Key, (_, Args) => Args);
                             if (!typeParams.All(xs => xs.Any())) return null; // types short
 
-                            return new
-                            {
-                                MethodInfo = mi,
-                                TypeParameters = typeParams
-                                    .Select(xs => xs.First())
-                                    .ToDictionary(a => a.Key, a => a.Type)
-                            };
+                            return new TypedMethod(mi, typeArgs, parameterTypes);
                         }
                         else
                         {
                             if (genericArguments.Length != typeArgs.Length) return null;
 
-                            return new
-                            {
-                                MethodInfo = mi,
-                                TypeParameters = genericArguments
-                                    .Zip(typeArgs, Tuple.Create)
-                                    .ToDictionary(t => t.Item1, t => t.Item2)
-                            };
+                            return new TypedMethod(mi, typeArgs, parameterTypes);
                         }
                     })
                     .Where(a => a != null)
-                    .Where(a => a.MethodInfo
-                        .GetParameters()
-                        .Select(pi => pi.ParameterType)
-                        .SequenceEqual(parameterTypes, new EqualsComparer<Type>((x, y) =>
-                            (x.IsGenericParameter)
-                                ? a.TypeParameters[x].IsAssignableFrom(y)
-                                : x.Equals(y)))
-                    )
+                    .Where(a => a.Score >= 0)
+                    .OrderBy(a => a.GenericArguments.Length)
+                    .ThenByDescending(a => a.Score)
+                    .Take(2)
                     .ToArray();
 
                 if (!typedMethods.Any()) throw new ArgumentException(string.Format("\"{0}\" not match arguments : Type <{1}>", methodName, typeof(T).Name));
 
-                // nongeneric
-                var nongeneric = typedMethods.Where(a => a.TypeParameters == null).ToArray();
-                if (nongeneric.Length == 1) return nongeneric[0].MethodInfo;
+                var firstMethod = typedMethods[0];
+                if (typedMethods.Length > 1)
+                {
+                    var secondMethod = typedMethods[1];
+                    if (firstMethod.GenericArguments.Length == secondMethod.GenericArguments.Length && firstMethod.Score == secondMethod.Score)
+                        throw new ArgumentException(string.Format("\"{0}\" ambiguous arguments : Type <{1}>", methodName, typeof(T).Name));
+                }
 
-                // generic--
-                var lessGeneric = typedMethods
-                    .Where(a => !a.MethodInfo.GetParameters().All(pi => pi.ParameterType.IsGenericParameter))
-                    .ToArray();
-
-                // generic
-                var generic = (typedMethods.Length == 1)
-                    ? typedMethods[0]
-                    : (lessGeneric.Length == 1 ? lessGeneric[0] : null);
-
-                if (generic != null) return generic.MethodInfo.MakeGenericMethod(generic.TypeParameters.Select(kvp => kvp.Value).ToArray());
-
-                // ambiguous
-                throw new ArgumentException(string.Format("\"{0}\" ambiguous arguments : Type <{1}>", methodName, typeof(T).Name));
+                if (firstMethod.GenericArguments.Length == 0)
+                {
+                    return firstMethod.MethodInfo;
+                }
+                else
+                {
+                    var typeArguments = firstMethod.GenericArguments.Select(a => firstMethod.GenericParamTypes[a.Name]).ToArray();
+                    return firstMethod.MethodInfo.MakeGenericMethod(typeArguments);
+                }
             }
 
             private class EqualsComparer<TX> : IEqualityComparer<TX>

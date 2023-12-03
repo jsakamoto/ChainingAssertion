@@ -1,7 +1,7 @@
 ﻿namespace ChainingAssertion;
 
 [TestFixture]
-public class AssertEx
+public class AssertExTest
 {
     private StringComparer IgnoreCase => StringComparer.InvariantCultureIgnoreCase;
 
@@ -199,12 +199,18 @@ public class AssertEx
     {
         var d = new PrivateMock().AsDynamic();
 
-        (d.NullableMethod((IEnumerable<int>?)null) as string).Is("enumerable");
-        (d.NullableMethod((List<int>?)null) as string).Is("enumerable");
+        Assert.Throws<ArgumentException>(() => { d.NullableMethod((IEnumerable<int>?)null); })
+            .IsNotNull()
+            .Message.StartsWith("\"NullableMethod\" ambiguous arguments")
+            .IsTrue();
+        Assert.Throws<ArgumentException>(() => { d.NullableMethod((List<int>?)null); })
+            .IsNotNull()
+            .Message.StartsWith("\"NullableMethod\" ambiguous arguments")
+            .IsTrue();
 
         (d.NullableMethod(Enumerable.Range(1, 10)) as string).Is("enumerable");
-        (d.NullableMethod(new List<int>().AsEnumerable()) as string).Is("enumerable");
-        (d.NullableMethod(new List<int>()) as string).Is("enumerable");
+        (d.NullableMethod(new List<int>().AsEnumerable()) as string).Is("list");
+        (d.NullableMethod(new List<int>()) as string).Is("list");
     }
 
     public class GenericPrivateMock
@@ -268,8 +274,6 @@ public class AssertEx
     [Test]
     public void GenericPrivateTest()
     {
-        Assert.Inconclusive("Currently, this test is broken. It would be fixed in the future.");
-
         var d = new GenericPrivateMock().AsDynamic();
 
         (d.PrivateGeneric("", 0, "") as string).Is("a");
@@ -317,26 +321,20 @@ public class AssertEx
     [Test]
     public void DumpTest()
     {
-        Assert.Inconclusive("The exception message is complicated at this time. It would be fixed in the future.");
-
         var count = new List<int>() { 1, 2, 3 };
         var person = new Person { Age = 50, FamilyName = "Yamamoto", GivenName = "Tasuke" };
-        try
+        var ex = Assert.Throws<AssertionException>(() =>
         {
             person.Is(p => p.Age < count.Count && p.FamilyName == "Yamada" && p.GivenName == "Tarou");
-        }
-        catch (Exception ex)
-        {
-            ex.Message.Contains("Age = 50, FamilyName = Yamamoto, GivenName = Tasuke").Is(true);
-            return;
-        }
-        Assert.Fail();
+        });
+
+        ex.IsNotNull().Message.Contains("Age = 50, FamilyName = Yamamoto, GivenName = Tasuke").IsTrue();
     }
 
     [Test]
     public void IsNullMethodMessage()
     {
-        object? o = new object();
+        var o = new object();
         o.IsNotNull();
 
         Assert.Throws<AssertionException>(() => o.IsNull("msg_msg"))
@@ -450,7 +448,7 @@ public class AssertEx
         object? n = null;
         Assert.Throws<AssertionException>(() => n.IsStructuralEqual("a"));
         Assert.Throws<AssertionException>(() => "a".IsStructuralEqual(n));
-        int i = 10;
+        var i = 10;
         long l = 10;
         Assert.Throws<AssertionException>(() => i.IsStructuralEqual(l));
 
@@ -587,7 +585,7 @@ public class AssertEx
         object? n = null;
         n.IsNotStructuralEqual("a");
         "a".IsNotStructuralEqual(n);
-        int i = 10;
+        var i = 10;
         long l = 10;
         i.IsNotStructuralEqual(l);
 
