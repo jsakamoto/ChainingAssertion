@@ -356,13 +356,13 @@ namespace Microsoft.VisualStudio.TestTools.UnitTesting
         /// <summary>Assert.AreSame</summary>
         public static void IsSameReferenceAs<T>(this T actual, T expected, string message = "")
         {
-            Assert.AreSame(expected, actual, message);
+            Object.ReferenceEquals(actual, expected).IsTrue(message);
         }
 
         /// <summary>Assert.AreNotSame</summary>
         public static void IsNotSameReferenceAs<T>(this T actual, T notExpected, string message = "")
         {
-            Assert.AreNotSame(notExpected, actual, message);
+            Object.ReferenceEquals(actual, notExpected).IsFalse(message);
         }
 
         /// <summary>Assert.IsInstanceOfType</summary>
