@@ -1,3 +1,6 @@
+v.4.0.1
+- Fix: Incorrect method resolution when using dynamic accessor by "AsDynamic()"
+
 v.4.0.0
 - NUnit 4.0 support.
 

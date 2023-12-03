@@ -8,7 +8,7 @@
 
   <PropertyGroup>
     <PackageId>ChainingAssertion-NUnit.Bin</PackageId>
-    <Version>4.0.0</Version>
+    <Version>4.0.1</Version>
     <GeneratePackageOnBuild Condition=" '$(Configuration)' == 'Release' ">true</GeneratePackageOnBuild>
     <Title>Chaining Assertion for NUnit - Binary Edition</Title>
     <Product>ChainingAssertion</Product>
