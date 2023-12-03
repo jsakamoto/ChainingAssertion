@@ -9,9 +9,9 @@
     <Import_RootNamespace>ChainingAssertion.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)internals\DynamicAccessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internals\DynamicAccessor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internals\MaybeNullAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internals\NotNullAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)internals\ReflectAccessor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internals\ReflectAccessor.cs" />
   </ItemGroup>
 </Project>
