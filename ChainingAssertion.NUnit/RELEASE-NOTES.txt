@@ -1,3 +1,7 @@
+v.5.0.0
+- Feature: Added support for NUnit 5.0. NUnit 4 is no longer supported.
+- Improve: Changed the target frameworks to .NET Framework 4.6.2, .NET 8.0, and .NET 10.0, to match NUnit 5.
+
 v.4.0.1
 - Fix: Incorrect method resolution when using dynamic accessor by "AsDynamic()"
 
