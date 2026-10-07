@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/unit-tests-for-nunit.yml" />
+    <File Path="LiCENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ChainingAssertion.NUnit.UnitTest/ChainingAssertion.NUnit.UnitTest.csproj" />
+  <Project Path="ChainingAssertion.NUnit/ChainingAssertion.NUnit.csproj" />
+  <Project Path="ChainingAssertion.Shared/ChainingAssertion.Shared.shproj" />
+</Solution>

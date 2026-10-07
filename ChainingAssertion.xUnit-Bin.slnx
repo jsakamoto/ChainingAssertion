@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".github/workflows/unit-tests-for-xunit.yml" />
+    <File Path="LiCENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="ChainingAssertion.Shared/ChainingAssertion.Shared.shproj" />
+  <Project Path="ChainingAssertion.xUnit.UnitTest/ChainingAssertion.xUnit.UnitTest.csproj" />
+  <Project Path="ChainingAssertion.xUnit/ChainingAssertion.xUnit.csproj" />
+</Solution>
